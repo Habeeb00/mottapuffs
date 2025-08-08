@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchGlobalStats, subscribeGlobalStats } from "../api/puffs";
+import { getStoredUser } from "../lib/storage";
 
 export default function Home() {
   const [stats, setStats] = useState(null);
+  const user = getStoredUser();
 
   useEffect(() => {
     let cleanup = () => {};
@@ -21,7 +23,10 @@ export default function Home() {
 
   return (
     <div className="max-w-md">
-      <h2 className="text-xl font-semibold mb-4">🏪 Current Inventory</h2>
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold">🏪 Current Inventory</h2>
+        <p className="text-sm text-gray-500">Welcome, {user?.full_name || 'User'}!</p>
+      </div>
       <p className="text-sm text-gray-600 mb-4">
         Live puff counts - updates automatically when purchases are made
       </p>
