@@ -7,14 +7,18 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node ./scripts/admin-server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.54.0",
     "bcryptjs": "^3.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.0"
+    "react-router-dom": "^7.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
