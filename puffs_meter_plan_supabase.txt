@@ -1,0 +1,89 @@
+Puffs Meter - Mobile Web App Development Plan (Supabase + React)
+=============================================================
+
+1. Overview
+-----------
+A mobile-first web app to track and display the number of puffs sold at a local store, categorized by type (Chicken, Motta, Meat).
+Users register with their name, log purchases via QR code scanning at the store, and view a live leaderboard.
+
+2. Core Features
+----------------
+- Simple name-based registration with auto-generated ID
+- Persistent login via localStorage
+- Live puff counts for each type
+- QR code at store for quick puff logging
+- Submission form for puff type & quantity
+- Leaderboard showing top puff buyers
+- Real-time updates with Supabase subscriptions
+
+3. Tech Stack
+-------------
+Frontend:
+- React (with Vite for fast development)
+- Tailwind CSS (responsive styling)
+- React Router (page navigation)
+
+Backend & Database:
+- Supabase (PostgreSQL + Auth + Realtime)
+- Supabase Auth (anonymous / name-based sign-up)
+
+Hosting:
+- Vercel (for frontend)
+- Supabase (for backend)
+
+QR Code:
+- Generated via `qrcode` npm package or an online tool
+- Links to `/add` page for submission
+
+4. Pages & Flow
+---------------
+a) Welcome Page
+   - First-time users: enter name → save to Supabase `users` table + localStorage
+   - Returning users: auto-login using stored ID
+
+b) Home Page
+   - Fetch and display global puff counts for each type
+   - Live updates via Supabase Realtime subscriptions
+
+c) Add Puffs Page (via QR Scan)
+   - Select puff type & quantity
+   - Submit updates both user’s record and global stats in DB
+
+d) Leaderboard Page
+   - Top users sorted by total puffs
+   - Fun titles for puff champions
+
+5. Database Schema (Supabase)
+------------------------------
+Table: stats
+- id (int, PK)
+- chicken (int)
+- motta (int)
+- meat (int)
+
+Table: users
+- id (uuid, PK)
+- name (text)
+- chicken (int)
+- motta (int)
+- meat (int)
+- total (int)
+
+6. Development Plan
+-------------------
+Step 1: Create Supabase project & set up `users` and `stats` tables
+Step 2: Build React + Tailwind static UI (mobile-first)
+Step 3: Implement registration with Supabase insert
+Step 4: Store user ID in localStorage for auto-login
+Step 5: Fetch & display live stats from Supabase
+Step 6: Add Realtime subscription for live count updates
+Step 7: Build Add Puffs form to update DB
+Step 8: Create QR code linking to `/add`
+Step 9: Build leaderboard with Supabase sorting query
+Step 10: Deploy frontend to Vercel
+
+7. Future Enhancements
+----------------------
+- Achievements for milestones
+- Offline mode with background sync
+- Multi-store support
