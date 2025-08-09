@@ -1,17 +1,16 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# [mottapuffs] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Ex]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Habeeb Rahman K] - [College of engineering perumon, kollam]
+- Member 2: [Sharan S Kumar] - [College of engineering perumon, kollam]
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -30,10 +29,6 @@ For Software:
 - [Libraries used]
 - [Tools used]
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
