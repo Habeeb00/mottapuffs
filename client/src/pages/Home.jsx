@@ -13,44 +13,39 @@ function BottomNavigation({ className = "" }) {
   };
 
   return (
-    <div
-      className={`w-full max-w-[397px] h-[83px] bg-white rounded-[45px] mx-auto ${className}`}
-    >
-      <div className="relative w-full h-[23px] top-3.5">
-        <div className="flex justify-center items-center gap-[68px] relative top-1.5">
-          {/* Home Icon */}
-          <button
-            onClick={() => navigate("/home")}
-            className="relative w-[21.54px] h-[21.89px] flex items-center justify-center"
-          >
-            <img src="/Home.png" alt="Home" className="w-5 h-5" />
-          </button>
-
-          {/* Leaderboard Icon */}
-          <button
-            onClick={() => navigate("/leaderboard")}
-            className="relative w-[21.54px] h-[20.98px] flex items-center justify-center"
-          >
-            <img src="/Bar chart.png" alt="Leaderboard" className="w-5 h-5" />
-          </button>
-
-          {/* Badge/Achievements Icon */}
-          <button
-            onClick={() => navigate("/achievements")}
-            className="relative w-[21.54px] h-[20.98px] flex items-center justify-center"
-          >
-            <img src="/icon.png" alt="Achievements" className="w-5 h-5" />
-          </button>
-
-          {/* Sign Out Icon */}
-          <button
-            onClick={handleSignOut}
-            className="relative w-[23px] h-[23px] flex items-center justify-center"
-          >
-            <img src="/logout.png" alt="Sign Out" className="w-5 h-5 hover:opacity-80 transition-opacity" />
-          </button>
-        </div>
-      </div>
+    <div className="flex justify-center gap-2 px-4">
+      <button
+        onClick={() => navigate("/home")}
+        className="flex items-center gap-1 px-3 py-2 bg-gray-800 text-white rounded-full text-sm font-medium transition-all"
+        style={{ fontFamily: "Clash Display SemiBold", fontWeight: "500" }}
+      >
+        <span className="text-sm">🏠</span>
+        Home
+      </button>
+      <button
+        onClick={() => navigate("/leaderboard")}
+        className="flex items-center gap-1 px-3 py-2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 rounded-full text-sm font-medium transition-all"
+        style={{ fontFamily: "Clash Display SemiBold", fontWeight: "500" }}
+      >
+        <span className="text-sm">🏆</span>
+        Board
+      </button>
+      <button
+        onClick={() => navigate("/achievements")}
+        className="flex items-center gap-1 px-3 py-2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 rounded-full text-sm font-medium transition-all"
+        style={{ fontFamily: "Clash Display SemiBold", fontWeight: "500" }}
+      >
+        <span className="text-sm">🏅</span>
+        Awards
+      </button>
+      <button
+        onClick={handleSignOut}
+        className="flex items-center gap-1 px-3 py-2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 rounded-full text-sm font-medium transition-all"
+        style={{ fontFamily: "Clash Display SemiBold", fontWeight: "500" }}
+      >
+        <span className="text-sm">🚪</span>
+        Exit
+      </button>
     </div>
   );
 }
@@ -58,7 +53,49 @@ function BottomNavigation({ className = "" }) {
 export default function Home() {
   const [stats, setStats] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isRightAligned, setIsRightAligned] = useState(Math.random() > 0.5);
   const user = getStoredUser();
+
+  // Function to generate dynamic messages based on puff counts
+  const getPuffMessage = (stats) => {
+    if (!stats) return "ippo vanna mottapuffs kittum";
+
+    const totalPuffs = stats.chicken + stats.motta + stats.meat;
+
+    // Individual puff type messages when only 1 left
+    if (stats.motta === 1 && stats.chicken > 1 && stats.meat > 1) {
+      return "ippo vanna motta puffs kittum";
+    }
+    if (stats.meat === 1 && stats.chicken > 1 && stats.motta > 1) {
+      return "ippo vanna meat puffs kittum";
+    }
+    if (stats.chicken === 1 && stats.motta > 1 && stats.meat > 1) {
+      return "ippo vanna chicken puffs kittum";
+    }
+
+    // Messages based on total count
+    if (totalPuffs === 0) {
+      return "puffs ellam poyi, poyi nale va, loser!";
+    }
+    if (totalPuffs === 2) {
+      return "randu puffs mathram baki, ippo allaengil njan thinnum!";
+    }
+    if (totalPuffs >= 3 && totalPuffs <= 5) {
+      return "ningalarinjille, kalyan silksil aadi sale thodangi, oru mottapuffs vangiye onnum free illa!";
+    }
+    if (totalPuffs > 5 && totalPuffs <= 8) {
+      return "puffs ready aanu, ippo vangiya iratti vangam!";
+    }
+    if (totalPuffs > 8 && totalPuffs <= 10) {
+      return "hungry?, edukku oru mottapuffs";
+    }
+    if (totalPuffs > 10) {
+      return "oru mottapuffs eduthalo,";
+    }
+
+    // Default message
+    return "ippo vanna mottapuffs kittum";
+  };
 
   useEffect(() => {
     let cleanup = () => {};
@@ -117,48 +154,97 @@ export default function Home() {
 
   if (!stats)
     return (
-      <div className="min-h-screen bg-yellow-400 flex items-center justify-center">
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ backgroundColor: "#FFDF33" }}
+      >
         <p className="text-2xl font-bold text-gray-800">Loading...</p>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-yellow-400 px-4 py-6 flex flex-col">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-black text-gray-800 mb-2">
-          CEP's own puffs meter
-        </h1>
-        <p className="text-sm text-gray-700 font-medium">
-          Hi {user?.full_name || "User"}
-        </p>
-      </div>
+    <div
+      className="min-h-screen flex flex-col relative overflow-hidden"
+      style={{ backgroundColor: "#FFDF33" }}
+    >
+      {/* Background Puffs Image */}
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: "url('/puffs.png')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "350px 270px",
+          backgroundPosition: "290% 20%",
+        }}
+      ></div>
 
-      {/* Search Bar */}
-      <div className="mb-8">
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <input
-            type="text"
-            placeholder="ippo vanna mottapuffs kittum"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none"
-          />
-          <div className="px-4 pb-2">
-            <span className="text-xs text-gray-400">11:45</span>
+      {/* Content Wrapper with relative positioning */}
+      <div className="relative z-10 flex flex-col flex-1 px-4 py-6">
+        {/* Header */}
+        <div className="text-center mb-4">
+          <h1
+            className="text-3xl text-gray-800 mb-0"
+            style={{ fontFamily: "Clash Display SemiBold", fontWeight: "600" }}
+          >
+            CEP's own puffs meter
+          </h1>
+          <p
+            className="text-lg text-gray-800 mb-4"
+            style={{
+              fontFamily: "Sue Ellen Francisco Reglar",
+              fontWeight: "500",
+            }}
+          >
+            ft. Sauparnam
+          </p>
+          <p className="text-sm text-gray-700 font-medium">
+            Hi {user?.full_name || "User"}
+          </p>
+        </div>
+
+        {/* Search Bar */}
+        <div
+          className={`mb-8 flex ${
+            isRightAligned ? "justify-end" : "justify-start"
+          }`}
+        >
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden max-w-sm w-auto">
+            <textarea
+              placeholder={getPuffMessage(stats)}
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                // Randomly change alignment on every few keystrokes
+                if (e.target.value.length % 3 === 0) {
+                  setIsRightAligned(Math.random() > 0.5);
+                }
+              }}
+              className="px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none min-w-64 resize-none"
+              rows="2"
+              style={{ minHeight: "auto" }}
+            />
+            <div className="px-4 pb-2">
+              <span className="text-xs text-gray-400">11:45</span>
+            </div>
           </div>
+        </div>
+
+        {/* Spacer to push puff stacks down */}
+        <div className="flex-1"></div>
+
+        {/* Puff Stacks - Aligned from bottom with increased max height */}
+        <div
+          className="flex justify-center items-end gap-8 mb-7 overflow-y-auto"
+          style={{ maxHeight: "600px" }}
+        >
+          <PuffStack count={stats.chicken} type="chicken" label="🐔" />
+          <PuffStack count={stats.motta} type="egg" label="🥟" />
+          <PuffStack count={stats.meat} type="beef" label="🥩" />
         </div>
       </div>
 
-      {/* Puff Stacks */}
-      <div className="flex justify-center items-end gap-8 mb-12 flex-1">
-        <PuffStack count={stats.chicken} type="chicken" label="🐔" />
-        <PuffStack count={stats.motta} type="egg" label="🥟" />
-        <PuffStack count={stats.meat} type="beef" label="🥩" />
-      </div>
-
-      {/* Bottom Navigation */}
-      <div className="mt-auto pb-4">
+      {/* Bottom Navigation - Fixed at bottom */}
+      <div className="pb-4">
         <BottomNavigation />
       </div>
     </div>
@@ -207,17 +293,18 @@ function PuffStack({ count, type, label }) {
   return (
     <div className="flex flex-col items-center">
       {/* Count Number */}
-      <div className="text-4xl font-black text-gray-800 -mb-0">{count}</div>
+      <div
+        className="text-4xl text-gray-800 -mb-0"
+        style={{ fontFamily: "Clash Display Semibold", fontWeight: "1000" }}
+      >
+        {count}
+      </div>
 
       {/* Multiple Puff Stacks */}
       <div className="flex items-end gap-0.5 mb-2">{stacks}</div>
 
       {/* Type Icon */}
-      <img 
-        src={`/${type}.png`} 
-        alt={type}
-        className="w-8 h-8"
-      />
+      <img src={`/${type}.png`} alt={type} className="w-8 h-8" />
     </div>
   );
 }
