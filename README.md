@@ -13,79 +13,82 @@
 - Member 2: [Sharan S Kumar] - [College of engineering perumon, kollam]
 
 ### Project Description
-[2-3 lines about what your project does]
+[we let people know about the amount of puffs in the shop near by college]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[people used to complain that they didnt get puffs when they reached the shop.] 
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+[Real time dashboard with puffs with rewarding system for people who buy want to buy a puffs, leaderboard, badges and tempting messages]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+-**Languages used**: JavaScript (ES6+), HTML5, CSS3
+- **Frontend Framework**: React 19.1.1 with Vite 7.1.1
+- **Backend**: Node.js with Express.js
+- **Database**: Supabase (PostgreSQL) with real-time subscriptions
+- **Styling**: Tailwind CSS with custom components
+- **Routing**: React Router DOM
+- **State Management**: React Hooks (useState, useEffect)
+- **Build Tools**: Vite for fast development and optimized builds
+- **Deployment**: Vercel for frontend, Railway/Vercel for backend
+- **Version Control**: Git & GitHub
+
 
 
 ### Implementation
 For Software:
-# Installation
-[commands]
+# Clone the repository
+git clone https://github.com/your-username/mottapuffs.git
+cd mottapuffs
+
+# Install frontend dependencies
+cd client
+npm install
+
+# Install backend dependencies (if running locally)
+cd ../server
+npm install
+
+- Set up environment variables
+- Create .env file in client directory with:
+- VITE_SUPABASE_URL=your_supabase_url
+- VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+
 
 # Run
-[commands]
+
+Start the frontend (from client directory)
+cd client
+npm run dev
+
+# Start the backend server (from server directory, if needed)
+cd server
+npm start
+
+# Or access the deployed version at:
+ https://mottapuffs.vercel.app
+
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![![alt text](image.png)](Add screenshot 1 here with proper name)
+*puffs vanganulla window*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](![alt text](image-1.png))
+*live puffs count with dynamic msges*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
+![Screenshot3](![alt text](image-2.png))
+*best puffer leaderboard*
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Sharan]: [Design]
+- [Habeeb]: [Devolopment]
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
