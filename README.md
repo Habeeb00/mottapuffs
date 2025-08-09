@@ -78,14 +78,14 @@ For Software:
 
 # Screenshots (Add at least 3)
 <img width="412" height="865" alt="image" src="https://github.com/user-attachments/assets/9f8ba8c4-da95-4b44-b69d-0148319c0fa8" />
-
 )](Add screenshot 1 here with proper name)
 *puffs vanganulla window*
 
-![Screenshot2](![alt text](image-1.png))
-*live puffs count with dynamic msges*
+<img width="398" height="851" alt="image" src="https://github.com/user-attachments/assets/a9869dd5-0704-44c5-af01-8004e5d221cb" />
 
-![Screenshot3](![alt text](image-2.png))
+*live puffs count with dynamic msges*
+<img width="403" height="851" alt="image" src="https://github.com/user-attachments/assets/f4d5a0d1-5f3a-4f6f-8875-7197e66b16ee" />
+
 *best puffer leaderboard*
 
 ## Team Contributions
