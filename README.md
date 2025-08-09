@@ -19,7 +19,7 @@
 [people used to complain that they didnt get puffs by the time when they reached the shop.] 
 
 ### The Solution (that nobody asked for)
-[Real time web dashboard with puffs with rewarding system for people who buy want to buy a puffs, leaderboard, badges and tempting messages]
+[Real time mobile web dashboard with puffs with rewarding system for people who buy want to buy a puffs, leaderboard, badges and tempting messages and makes you buy puffs.]
 
 ## Technical Details
 ### Technologies/Components Used
