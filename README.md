@@ -77,7 +77,9 @@ use https://mottapuffs.vercel.app/add to check how the people buying puffs will 
 For Software:
 
 # Screenshots (Add at least 3)
-![![alt text](image.png)](Add screenshot 1 here with proper name)
+<img width="412" height="865" alt="image" src="https://github.com/user-attachments/assets/9f8ba8c4-da95-4b44-b69d-0148319c0fa8" />
+
+)](Add screenshot 1 here with proper name)
 *puffs vanganulla window*
 
 ![Screenshot2](![alt text](image-1.png))
