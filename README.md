@@ -1,7 +1,7 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [mottapuffs] 🎯
+# [Hail mottapuffs] 🎯
 
 
 ## Basic Details
@@ -13,13 +13,13 @@
 - Member 2: [Sharan S Kumar] - [College of engineering perumon, kollam]
 
 ### Project Description
-[we let people know about the amount of puffs in the shop near by college]
+[we let people know about the amount of puffs in the shop near by college, its the most important talk at campus.]
 
 ### The Problem (that doesn't exist)
-[people used to complain that they didnt get puffs when they reached the shop.] 
+[people used to complain that they didnt get puffs by the time when they reached the shop.] 
 
 ### The Solution (that nobody asked for)
-[Real time dashboard with puffs with rewarding system for people who buy want to buy a puffs, leaderboard, badges and tempting messages]
+[Real time web dashboard with puffs with rewarding system for people who buy want to buy a puffs, leaderboard, badges and tempting messages]
 
 ## Technical Details
 ### Technologies/Components Used
@@ -70,6 +70,7 @@ npm start
 
 # Or access the deployed version at:
  https://mottapuffs.vercel.app
+use https://mottapuffs.vercel.app/add to check how the people buying puffs will reduce it from the naptol dashboard
 
 
 ### Project Documentation
